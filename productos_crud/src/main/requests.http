@@ -1,0 +1,84 @@
+@baseUrl = http://localhost:8080/api
+
+
+# crearCategoria
+POST {{baseUrl}}/categorias
+Content-Type: application/json
+
+{
+    "nombre": "Joyitas"
+}
+
+###
+
+# obtenerCategorias
+GET {{baseUrl}}/categorias
+
+###
+
+# @name obtenerCategoriaPorId
+GET {{baseUrl}}/categorias/3
+
+
+############################################################
+### 2. ENDPOINTS DE PRODUCTOS
+############################################################
+
+#  crearProducto
+POST {{baseUrl}}/productos
+Content-Type: application/json
+
+{
+    "nombre": "SMART TV",
+    "precio": 5000.00,
+    "stock": 12,
+    "categoria": {
+        "id": 1
+    }
+}
+
+###
+
+# obtenerProductos
+GET {{baseUrl}}/productos
+
+###
+
+# @name obtenerProductoPorId
+GET {{baseUrl}}/productos/3
+
+###
+
+# actualizarProducto
+PUT {{baseUrl}}/productos/4
+Content-Type: application/json
+
+{
+    "nombre": "Mouse Noga S-25x",
+    "precio": 38000.00,
+    "stock": 10,
+    "categoria": {
+        "id": 1
+    }
+}
+
+###
+
+# eliminarProducto
+DELETE {{baseUrl}}/productos/3
+
+
+############################################################
+### 3. PRUEBAS DE VALIDACIÓN (Deberían dar Error 400)
+############################################################
+
+# @name crearProductoInvalido
+POST {{baseUrl}}/productos
+Content-Type: application/json
+
+{
+    "nombre": "",
+    "precio": -150,
+    "stock": 5,
+    "categoria": null
+}

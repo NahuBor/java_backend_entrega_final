@@ -10,6 +10,8 @@
     # pkgs.python311Packages.pip
     # pkgs.nodejs_22
     # pkgs.nodePackages.nodemon
+    pkgs.openjdk17
+    pkgs.maven
   ];
   # Sets environment variables in the workspace
   env = {};
